@@ -1,0 +1,43 @@
+后台服务：
+一、包地址：com.minghui.commons.constant.FanbookPostConstant
+1.替换常量值 REDIRECT_URL 游戏主页面即授权后跳转地址，替换为fanbook 前端ng部署地址
+如现在前端打包后部署在 xx.xxx.xxx.xxx服务器下》nginx服务》games目录下，则地址为： http://xx.xxx.xxx.xxx/games/
+2.替换常量值 RANK_LIST_URL 游戏排行榜链接，替换为fanbook 前端ng部署地址
+如现在前端打包后部署在xx.xxx.xxx.xxx服务器下》nginx服务》games目录下，则地址为： http://xx.xxx.xxx.xxx/games/list
+3.消息卡片所需背景图和相关图片，已经提前部署到fanbook提供的cos存储上,可不用修改。
+
+二、包地址：com.minghui.commons.constant.FanbookConstant
+BOOT_ID(机器人令牌)、GAME_ID（游戏机器人ID）、CLIENT_ID、SECRET_KEY、MD5_KEY（前后端md5key保持一致） 如需变更请在该类替换相关常量值
+
+
+前端服务：
+一、文件：src》http》index.js 
+host = http://xx.xxx.xxx.xxx:9999 将游戏后台服务的IP和端口替换 
+md5key='md5key'; 保持和后端一致
+token = 'token';  替换为最新机器人令牌
+
+二、文件：src》unit》fb.js
+替换重定向地址为部署机器： http://xx.xxx.xxx.xxx/redirect/
+
+三、文件src》components》win 》index.js 
+替换
+rank() {
+        location.href = "/games/list"  替换 games 为当前目录，如 http://xx.xxx.xxx.xxx/games/list
+ }
+
+四、文件：文件src 》index.js 
+替换 basename 为前端部署的文件夹目录
+<BrowserRouter basename='/games/'>
+
+
+
+ngnix.conf配置：
+location /games/{
+    root  /usr/share/nginx/html/;   #替换为部署环境配置
+    try_files $uri $uri/ /games/index.html; #替换/games为当前部署目录
+}
+
+替换client_id：241393597449113600
+location /redirect/{
+  rewrite /* https://www.xxx.xxx/authorize?response_type=code&client_id=241393597449113600 permanent;
+ }

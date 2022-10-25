@@ -1,0 +1,153 @@
+.win_mark{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    //display: block;
+    background: rgba(0, 0, 0, 0.45);
+    .win-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .win-box{
+            width: 94%;
+            border-radius: 8px;
+            background-color: #fff;
+            padding-top: 50px;
+            position: relative;
+            .win-header{
+                text-align: center;
+                position: relative;
+                .win-img{
+                    width: 97px;
+                    height: 97px;
+                    border-radius: 50%;
+                }
+                .win-name{
+                    margin-top: 18px;
+                    font-size: 24px;
+                    color: rgba(0, 0, 0, 0.8);
+                }
+                .win-rank-level{
+                    border-radius: 6px;
+                    text-align: center;
+                    height: 32px;
+                    line-height: 32px;
+                    color: #fff;
+                    padding: 0 10px;
+                    background-color: #4659D2;
+                    // padding: auto;
+                    position: absolute;
+                    top: 80px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                }
+            }
+            .win-context{
+                margin-top: 54px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .win-item{
+                    width: 180px;
+                    padding: 0 24px;
+                    box-sizing: border-box;
+                    position: relative;
+                    .win-item-h1{
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                        color: rgba(0,0,0,0.7);
+                    }
+                    .win-item-h2{
+                        height: 48px;
+                        line-height: 48px;
+                        font-size: 34px;
+                    }
+                    .new{
+                        width: 32px;
+                        height: 20px;
+                        background-image: url("../../resource/image/new.png");
+                        background-size: 100% 100%;
+                        position: relative;
+                        top: -20px;
+                        display: inline-block;
+                        margin-left: 5px;
+                    }
+
+                }
+                .middle{
+                    &:before{
+                        content: '';
+                        height:46px;
+                        width: 1px;
+                        background: #D8D8D8;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translate(0, -50%);
+                    }
+                    &:after{
+                        content: '';
+                        height:46px;
+                        width: 1px;
+                        background: #D8D8D8;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translate(0, -50%);
+                    }
+                }
+            }
+            .win-footer{
+                margin-top: 62px;
+                border-top: 1px solid rgba(0,0,0,0.1);
+                display: flex;
+                .btn{
+                    width: 50%;
+                    height: 90px;
+                    line-height: 90px;
+                    font-size: 31px;
+                    text-align: center;
+                }
+                .rePlay{
+                    border-left: 1px solid rgba(0, 0, 0, 0.1);;
+                    color: #4659D2;
+                }
+                .grey{
+                    color: grey;
+                }
+            }
+        }
+        .win-close{
+            width: 60px;
+            height: 60px;
+            // border-radius: 50%;
+            color: #fff;
+            // border: 1px solid #fff;
+            // margin: 53px auto 0 auto;
+            position: absolute;
+            bottom: -53px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            // display: flex;
+            // text-align: center;
+            // line-height: 60px;
+            // font-size: 60px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            // align-items: center;
+            // justify-content: center;
+        }
+    }
+}
